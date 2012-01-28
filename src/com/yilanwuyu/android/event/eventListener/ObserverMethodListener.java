@@ -32,7 +32,8 @@ public class ObserverMethodListener implements EventListener {
     public void onEvent(Event event) {
         try {
             final Object instance = instanceReference.get();
-            method.invoke(instance, event);
+            if(instance != null)
+            	method.invoke(instance, event);
         } catch (InvocationTargetException e) {
             Ln.e(e);
         } catch (IllegalAccessException e) {
