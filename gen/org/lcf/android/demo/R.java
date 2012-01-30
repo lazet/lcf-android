@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.yilanwuyu.android.demo;
+package org.lcf.android.demo;
 
 public final class R {
     public static final class attr {
