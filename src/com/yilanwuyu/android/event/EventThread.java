@@ -19,5 +19,6 @@ package com.yilanwuyu.android.event;
  */
 public enum EventThread {
     UI,
-    CURRENT
+    CURRENT,
+    NEW
 }

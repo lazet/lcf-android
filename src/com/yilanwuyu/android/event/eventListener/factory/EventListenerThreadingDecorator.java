@@ -21,8 +21,8 @@ public class EventListenerThreadingDecorator {
         switch (threadType){
             case UI:
                 return new UIThreadEventListenerDecorator(eventListener, new Handler() );
-//            case BACKGROUND:
-//                return new AsynchronousEventListenerDecorator<T>(eventListener);
+            case NEW:
+                return new AsynchronousEventListenerDecorator(eventListener);
             default:
                 return eventListener;
         }
