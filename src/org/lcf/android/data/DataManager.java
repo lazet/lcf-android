@@ -57,7 +57,7 @@ public class DataManager{
 				return;
 			}
 			HttpClient client=new DefaultHttpClient();
-			//½¨Á¢HttpÇëÇó
+			//å»ºç«‹Httpè¯·æ±‚
 			HttpPost post = new HttpPost(Constants.getServerAddr() + event.getAddr());
 			List<NameValuePair> qparams = new ArrayList<NameValuePair>();
 			TreeMap<String,Object> tm = new TreeMap<String,Object>();
@@ -69,7 +69,7 @@ public class DataManager{
 			}
 			String queryString = URLEncodedUtils.format(qparams, "UTF-8");
 			
-			//Ôö¼ÓĞ£ÑéÂë
+			//å¢åŠ æ ¡éªŒç 
 			String signature = EncryptUtil.genSign(queryString + Constants.getSignature());
 			qparams.add(new BasicNameValuePair(Constants.SIGNATUE_NAME,signature ));
 			try {
@@ -78,7 +78,7 @@ public class DataManager{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//·¢ËÍÇëÇó
+			//å‘é€è¯·æ±‚
 			String responseBody = null;
 			try {
 				BasicResponseHandler responseHandler = new BasicResponseHandler();
@@ -87,7 +87,7 @@ public class DataManager{
 			catch (IOException e) {
 				Log.e(getClass().getName(), "Exception in DataManager", e);
 			}
-			//ÓÃjson´¦Àí·µ»Ø½á¹û,·¢ËÍ½á¹ûÊÂ¼ş
+			//ç”¨jsonå¤„ç†è¿”å›ç»“æœ,å‘é€ç»“æœäº‹ä»¶
 //			try {
 				this.eventManager.fire(new DataRespEvent(this.event,responseBody));//new JSONObject(
 //			} catch (JSONException e) {

@@ -20,11 +20,11 @@ public class Constants {
 	public static String DATA_REQ_EVENT = "DATA_REQ_EVENT";
 	public static String DATA_RESP_EVENT = "DATA_RESP_EVENT";
 	public static String DATA_RESP_EVENT_RESULT = "DATA_RESP_EVENT_RESULT";
-	//È±Ê¡·şÎñÆ÷µØÖ·
+	//ç¼ºçœæœåŠ¡å™¨åœ°å€
 	public static String SERVER_ADDR_AFFIX_DEFAULT = "127.0.0.1:8080/sc/";
-	//È±Ê¡Ç©ÃûÂë
+	//ç¼ºçœç­¾åç 
 	public static String SIGNATUE_DEFAULT = "!#^U35{.^(^%()nS@Z*9056-=?+";
-	//Ç©ÃûÃû×Ö
+	//ç­¾ååå­—
 	public static String SIGNATUE_NAME = "signature";
 	
 	private String serverAddr = null;

@@ -10,7 +10,7 @@ import static org.lcf.android.data.Constants.DATA_REQ_EVENT;
 public class DataReqEvent extends Event{
 	
 	/**
-	 * 数据请求事件定义
+	 * 鏁版嵁璇锋眰浜嬩欢瀹氫箟
 	 * @param url
 	 * @param args
 	 */

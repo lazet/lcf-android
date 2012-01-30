@@ -8,5 +8,5 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:onClick="onClickMe"
-            android:text="show my blog"/>
+            android:text="make a http call"/>
 </LinearLayout>
