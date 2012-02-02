@@ -22,27 +22,31 @@ public class DemoApp extends Application {
  * Activity extends RoboActivity
  */
 public class DemoActivity extends RoboActivity {
+...
 
 3, add a annotation to a method to listen on relative event.
 //to update ui when received a event.
 @Observes(name="event_name",threadType=EventThread.UI)
 void handleEvent(Event event){ //event must be instance of Class extends org.lcf.android.event.Event.
+....
 
 //another usage: to do something when received a event.
 @Observes(name="event_name",threadType=EventThread.CURRENT)
 void handleEvent(Event event){//event must be instance of Class extends org.lcf.android.event.Event.
-
+...
 4, make a call by fire a event.
 @Inject EventManager em;//org.lcf.android.event.EventManager
 em.fire(new Event("event_name", "context_url",null));
-
-5  create a listener class as singleton, 
+...
+5  create a listener class as singleton,and auto inject it in another class . 
 @Singleton
 public class ServiceClassName{
+...
 
-//and auto inject it in another class . 
+//in another class. inject it as a property.
+...
 @Inject 
 ServiceClassName s;
-
+...
 
 
