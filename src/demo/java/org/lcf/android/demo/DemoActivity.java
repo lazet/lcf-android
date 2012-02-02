@@ -16,6 +16,11 @@ import android.widget.Toast;
 
 import com.google.inject.Inject;
 
+/**
+ * Activity 继承RoboActivity
+ * @author Administrator
+ *
+ */
 public class DemoActivity extends RoboActivity {
     
     @Inject public EventManager em;

@@ -1,2 +1,35 @@
 this is a global event communication framework in android.
 include a simple example to show how to implements async  http request by this.
+
+
+usage:
+1, create a android Application class. example as:
+public class DemoApp extends Application {
+	@Override
+	public void onCreate() {
+	    //以下三行保持不变
+		Injector i = RoboGuice.setBaseApplicationInjector( this, RoboGuice.DEFAULT_STAGE, Modules.override(RoboGuice.newDefaultRoboModule(this)).with(new EventModule()));
+		i.injectMembers(this);
+		DataManager dm = i.getInstance(DataManager.class);
+		//修改服务器地址
+		Constants.init("http://api.tongcard.net/", null);
+		super.onCreate();
+	}
+}
+
+2, create Activity. as follow:
+/**
+ * Activity extends RoboActivity
+ */
+public class DemoActivity extends RoboActivity {
+
+3, add a annotation to a method to listen on relative event.
+//to update ui when received a event.
+@Observes(name="event_name",threadType=EventThread.UI)
+void handleEvent(Event event){ //event must be instance of Class extends org.lcf.android.event.Event.
+//another usage: to do something when received a event.
+@Observes(name="event_name",threadType=EventThread.CURRENT)
+void handleEvent(Event event){//event must be instance of Class extends org.lcf.android.event.Event.
+4, make a call by fire a event.
+EventManager em;//org.lcf.android.event.EventManager
+em.fire(new Event("event_name", "context_url",null));
