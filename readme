@@ -2,7 +2,7 @@ this is a global event communication framework in android.
 include a simple example to show how to implements async  http request by this.
 
 
-basic usage:
+A. basic usage:
 1, create a android Application class. example as:
 public class DemoApp extends Application {
 	@Override
@@ -53,4 +53,15 @@ ServiceClassName s;
 ...
 <application android:name="DemoApp" >
 ...
+
+----------------------------------------------
+B. HTTP Call usage:
+
+1, send http request event
+em.fire(new DataReqEvent("servercontext/serviceObject/action",null));
+
+2, received http response event ( to servercontext/serviceObject/action)
+//The eventName prefix "DATA_RESP_EVENT/" is required and constant
+@Observes(name="DATA_RESP_EVENT/servercontext/serviceObject/action",threadType=EventThread.CURRENT)
+void handleEventMethod1(Event event){//event must be instance of Class extends org.lcf.android.event.Event.
 
