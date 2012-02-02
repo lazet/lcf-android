@@ -42,7 +42,7 @@ public class ServiceClassName{
 
 //and auto inject it in another class . 
 @Inject 
-EventManager em;
+ServiceClassName s;
 
 
 
