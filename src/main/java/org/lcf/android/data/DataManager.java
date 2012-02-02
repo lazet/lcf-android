@@ -25,8 +25,6 @@ import com.google.inject.Singleton;
 
 import android.util.Log;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.lcf.android.event.EventManager;
 import org.lcf.android.event.EventThread;
 import org.lcf.android.event.Observes;
