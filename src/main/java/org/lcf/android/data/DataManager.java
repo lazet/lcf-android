@@ -86,6 +86,7 @@ public class DataManager{
 			}
 			catch (IOException e) {
 				Log.e(getClass().getName(), "Exception in DataManager", e);
+				this.eventManager.fire(new DataErrorEvent(this.event,e));
 			}
 			//用json处理返回结果,发送结果事件
 //			try {

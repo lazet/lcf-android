@@ -19,7 +19,9 @@ public class Constants {
 	}
 	public static String DATA_REQ_EVENT = "DATA_REQ_EVENT";
 	public static String DATA_RESP_EVENT = "DATA_RESP_EVENT";
+	public static String DATA_ERROR_EVENT = "DATA_ERROR_EVENT";
 	public static String DATA_RESP_EVENT_RESULT = "DATA_RESP_EVENT_RESULT";
+	public static String DATA_ERROR = "DATA_ERROR";
 	//缺省服务器地址
 	public static String SERVER_ADDR_AFFIX_DEFAULT = "127.0.0.1:8080/sc/";
 	//缺省签名码

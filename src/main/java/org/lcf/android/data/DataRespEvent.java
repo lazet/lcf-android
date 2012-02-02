@@ -12,7 +12,7 @@ import static org.lcf.android.data.Constants.DATA_RESP_EVENT_RESULT;
 public class DataRespEvent extends Event{
 	
 	public DataRespEvent(DataReqEvent req,Object result){
-		super(DATA_RESP_EVENT,req.getAddr(),buildResultMap(req,result));	
+		super(DATA_RESP_EVENT + "/" + req.getAddr(),req.getAddr(),buildResultMap(req,result));	
 	}
 	protected static Map<String,Object> buildResultMap(DataReqEvent req,Object result){
 		Map<String,Object> argv = null;

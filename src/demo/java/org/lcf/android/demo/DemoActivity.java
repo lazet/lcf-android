@@ -36,7 +36,7 @@ public class DemoActivity extends RoboActivity {
     	 em.fire(new DataReqEvent("api",null));
     }
    
-    @Observes(name="DATA_RESP_EVENT",threadType=EventThread.UI)
+    @Observes(name="DATA_RESP_EVENT/api",threadType=EventThread.UI)
     protected void handleEvent(Event event){
     	Toast.makeText(DemoActivity.this, ((String)event.getArgs().get("DATA_RESP_EVENT_RESULT")).substring(0, 100), Toast.LENGTH_LONG).show();
     }
