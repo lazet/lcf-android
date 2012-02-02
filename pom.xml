@@ -4,21 +4,46 @@
   <artifactId>lcf-android</artifactId>
   <version>1.0</version>
   <name>lcf-android</name>
-  <dependencies>
-  	<dependency>
-  		<groupId>org.roboguice</groupId>
-  		<artifactId>roboguice</artifactId>
-  		<version>2.0b3</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.google.inject</groupId>
-  		<artifactId>guice</artifactId>
-  		<version>3.0</version>
-  		<classifier>no_aop</classifier>
-  	</dependency>
-  </dependencies>
-
-<build>
+	<licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+	<developers>
+        <developer>
+            <id>mike</id>
+            <name>Michael Burton</name>
+            <email>mb-mavencentral@niskala.org</email>
+        </developer>
+        <developer>
+            <id>mosabua</id>
+            <name>Manfred Moser</name>
+            <email>manfred@simpligility.com</email>
+        </developer>
+        <developer>
+            <id>lazet</id>
+            <name>zhantao li</name>
+            <email>lizhantao@gmail.com</email>
+        </developer>
+    </developers>
+	<dependencies>
+	 	<dependency>
+	 		<groupId>org.roboguice</groupId>
+	 		<artifactId>roboguice</artifactId>
+	 		<version>2.0b3</version>
+	 	</dependency>
+	 	<dependency>
+	 		<groupId>com.google.inject</groupId>
+	 		<artifactId>guice</artifactId>
+	 		<version>3.0</version>
+	 		<classifier>no_aop</classifier>
+	 	</dependency>
+	</dependencies>
+	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+	<build>
         <defaultGoal>package</defaultGoal>
         <plugins>
             <plugin>
