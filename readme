@@ -2,7 +2,7 @@ this is a global event communication framework in android.
 include a simple example to show how to implements async  http request by this.
 
 
-usage:
+basic usage:
 1, create a android Application class. example as:
 public class DemoApp extends Application {
 	@Override
@@ -27,9 +27,22 @@ public class DemoActivity extends RoboActivity {
 //to update ui when received a event.
 @Observes(name="event_name",threadType=EventThread.UI)
 void handleEvent(Event event){ //event must be instance of Class extends org.lcf.android.event.Event.
+
 //another usage: to do something when received a event.
 @Observes(name="event_name",threadType=EventThread.CURRENT)
 void handleEvent(Event event){//event must be instance of Class extends org.lcf.android.event.Event.
+
 4, make a call by fire a event.
-EventManager em;//org.lcf.android.event.EventManager
+@Inject EventManager em;//org.lcf.android.event.EventManager
 em.fire(new Event("event_name", "context_url",null));
+
+5  create a listener class as singleton, 
+@Singleton
+public class ServiceClassName{
+
+//and auto inject it in another class . 
+@Inject 
+EventManager em;
+
+
+
