@@ -81,17 +81,18 @@ public class DataManager{
 			try {
 				BasicResponseHandler responseHandler = new BasicResponseHandler();
 				responseBody = client.execute(post, responseHandler);
+				//用json处理返回结果,发送结果事件
+//				try {
+					this.eventManager.fire(new DataRespEvent(this.event,responseBody));//new JSONObject(
+//				} catch (JSONException e) {
+//					Log.e(getClass().getName(), "Exception in Processing Json in DataManager::" + responseBody, e);
+//				}
 			}
 			catch (IOException e) {
 				Log.e(getClass().getName(), "Exception in DataManager", e);
 				this.eventManager.fire(new DataErrorEvent(this.event,e));
 			}
-			//用json处理返回结果,发送结果事件
-//			try {
-				this.eventManager.fire(new DataRespEvent(this.event,responseBody));//new JSONObject(
-//			} catch (JSONException e) {
-//				Log.e(getClass().getName(), "Exception in Processing Json in DataManager::" + responseBody, e);
-//			}
+			
 		}
 		
 	}
