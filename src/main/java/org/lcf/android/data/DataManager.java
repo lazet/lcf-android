@@ -61,7 +61,7 @@ public class DataManager{
 			TreeMap<String,Object> tm = new TreeMap<String,Object>();
 			if(event.getArgs() != null)
 				tm.putAll(event.getArgs());
-			if(event.getArgs() == null){
+			if(event.getArgs() != null){
 				for(Map.Entry<String, Object>  entry : tm.entrySet())
 					qparams.add(new BasicNameValuePair(entry.getKey(), String.valueOf(entry.getValue())));
 			}
@@ -88,7 +88,7 @@ public class DataManager{
 //					Log.e(getClass().getName(), "Exception in Processing Json in DataManager::" + responseBody, e);
 //				}
 			}
-			catch (IOException e) {
+			catch (Exception e) {
 				Log.e(getClass().getName(), "Exception in DataManager", e);
 				this.eventManager.fire(new DataErrorEvent(this.event,e));
 			}

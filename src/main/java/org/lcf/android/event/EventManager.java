@@ -117,8 +117,19 @@ public class EventManager {
         final Set<EventListener> observers = registrations.get(event.getName());
         if (observers == null) return;
 
-        for (EventListener observer : observers)
-            observer.onEvent(event);
+        for (EventListener observer : observers){
+        	try{
+        		observer.onEvent(event);
+        	}
+        	catch(Exception e){
+        		try{
+        			this.unregisterObserver(event.getName(), observer);
+        		}catch(Exception ee){
+        			
+        		}
+        	}
+        }
+            
 
     }
 
@@ -135,17 +146,18 @@ public class EventManager {
         }
 
         public void onEvent(Event event) {
-            try {
-                final Object instance = instanceReference.get();
-                if (instance != null) {
+        	final Object instance = instanceReference.get();
+            if (instance != null) {
+            	try {
                     method.invoke(instance, event);
-                } else {
-                    Ln.w("trying to observe event %1$s on disposed context, consider explicitly calling EventManager.unregisterObserver", method.getName());
-                }
-            } catch (InvocationTargetException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
+	            } catch (InvocationTargetException e) {
+	                throw new RuntimeException(e);
+	            } catch (IllegalAccessException e) {
+	                throw new RuntimeException(e);
+	            }
+            } else {
+                Ln.w("trying to observe event %1$s on disposed context, consider explicitly calling EventManager.unregisterObserver",method.getName() );
+                throw new RuntimeException("trying to observe event "+ method.getName() + " on disposed context, consider explicitly calling EventManager.unregisterObserver");
             }
         }
 

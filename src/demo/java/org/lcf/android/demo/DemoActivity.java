@@ -1,5 +1,8 @@
 package org.lcf.android.demo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.lcf.android.data.DataReqEvent;
 import org.lcf.android.event.Event;
 import org.lcf.android.event.EventManager;
@@ -33,12 +36,17 @@ public class DemoActivity extends RoboActivity {
     public void onClickMe(View v)
     {
     	Toast.makeText(DemoActivity.this, "send request to "+"api", Toast.LENGTH_LONG).show();
-    	 em.fire(new DataReqEvent("api",null));
+    	Map<String,Object> args = new HashMap<String,Object>();
+    	args.put("method", "doit");
+    	 em.fire(new DataReqEvent("api",args));
     }
    
     @Observes(name="DATA_RESP_EVENT/api",threadType=EventThread.UI)
     protected void handleEvent(Event event){
     	Toast.makeText(DemoActivity.this, ((String)event.getArgs().get("DATA_RESP_EVENT_RESULT")).substring(0, 100), Toast.LENGTH_LONG).show();
     }
-    
+    @Observes(name="DATA_ERROR_EVENT/api2",threadType=EventThread.UI)
+    protected void handleErrorEvent(Event event){
+    	Toast.makeText(DemoActivity.this, "request failed!", Toast.LENGTH_LONG).show();
+    }
 }
