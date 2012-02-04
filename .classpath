@@ -8,6 +8,6 @@
 	<classpathentry kind="var" path="M2_REPO/com/google/inject/guice/3.0/guice-3.0-no_aop.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/roboguice/roboguice/2.0b3/roboguice-2.0b3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/inject/javax.inject/1/javax.inject-1.jar"/>
-	<classpathentry kind="var" path="M2_REPO/android/support/compatibility-v4/r4/compatibility-v4-r4.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/android/support-v4/r6/support-v4-r6.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
