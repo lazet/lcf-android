@@ -65,3 +65,7 @@ em.fire(new DataReqEvent("servercontext/serviceObject/action",null));
 @Observes(name="DATA_RESP_EVENT/servercontext/serviceObject/action",threadType=EventThread.UI)
 void handleEventMethod1(Event event){//event must be instance of Class extends org.lcf.android.event.Event.
 
+----------------------------------------------
+C. How to compile:
+just use maven to do compiling well.
+
