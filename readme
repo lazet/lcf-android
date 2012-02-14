@@ -62,6 +62,6 @@ em.fire(new DataReqEvent("servercontext/serviceObject/action",null));
 
 2, received http response event ( to servercontext/serviceObject/action)
 //The eventName prefix "DATA_RESP_EVENT/" is required and constant
-@Observes(name="DATA_RESP_EVENT/servercontext/serviceObject/action",threadType=EventThread.CURRENT)
+@Observes(name="DATA_RESP_EVENT/servercontext/serviceObject/action",threadType=EventThread.UI)
 void handleEventMethod1(Event event){//event must be instance of Class extends org.lcf.android.event.Event.
 
