@@ -55,6 +55,7 @@ public class DataManager{
 				return;
 			}
 			HttpClient client=new DefaultHttpClient();
+			client.getParams().setParameter("http.protocol.content-charset", "UTF-8");
 			//建立Http请求
 			HttpPost post = new HttpPost(Constants.getServerAddr() + event.getAddr());
 			List<NameValuePair> qparams = new ArrayList<NameValuePair>();
