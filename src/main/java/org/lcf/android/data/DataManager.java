@@ -18,6 +18,7 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -55,7 +56,6 @@ public class DataManager{
 				return;
 			}
 			HttpClient client=new DefaultHttpClient();
-			client.getParams().setParameter("http.protocol.content-charset", "UTF-8");
 			//建立Http请求
 			HttpPost post = new HttpPost(Constants.getServerAddr() + event.getAddr());
 			List<NameValuePair> qparams = new ArrayList<NameValuePair>();
@@ -73,6 +73,7 @@ public class DataManager{
 			qparams.add(new BasicNameValuePair(Constants.SIGNATUE_NAME,signature ));
 			try {
 				post.setEntity(new UrlEncodedFormEntity(qparams, "UTF-8"));
+				post.setHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
