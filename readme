@@ -58,7 +58,9 @@ ServiceClassName s;
 B. HTTP Call usage:
 
 1, send http request event
-em.fire(new DataReqEvent("servercontext/serviceObject/action",null));
+Map<String,Object> args = new HashMap<String,Object>();
+args.put("arg1", "5");
+em.fire(new DataReqEvent("servercontext/serviceObject/action",args));
 
 2, received http response event ( to servercontext/serviceObject/action)
 //The eventName prefix "DATA_RESP_EVENT/" is required and constant
